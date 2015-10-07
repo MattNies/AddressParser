@@ -12,7 +12,9 @@ namespace AddressParserTest
         {
             string st = "way";
 
-            Assert.IsTrue(ValidateAddress.ValidateStreetType(st), "Not properly validating street type");
+            ValidateAddress.ValidateStreetTypes(st);
+
+            Assert.IsTrue( ValidateAddress.ValidateStreetTypes(st), "Not properly validating street type");
         }
 
     }

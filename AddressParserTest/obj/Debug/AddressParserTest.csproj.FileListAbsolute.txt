@@ -1,7 +1,7 @@
-C:\Applications\github\mattnies\AddressParser\AddressParserTest\obj\Debug\AddressParserTest.csprojResolveAssemblyReference.cache
 C:\Applications\github\mattnies\AddressParser\AddressParserTest\bin\Debug\AddressParserTest.dll
 C:\Applications\github\mattnies\AddressParser\AddressParserTest\bin\Debug\AddressParserTest.pdb
 C:\Applications\github\mattnies\AddressParser\AddressParserTest\bin\Debug\AddressParser.exe
 C:\Applications\github\mattnies\AddressParser\AddressParserTest\bin\Debug\AddressParser.pdb
+C:\Applications\github\mattnies\AddressParser\AddressParserTest\obj\Debug\AddressParserTest.csprojResolveAssemblyReference.cache
 C:\Applications\github\mattnies\AddressParser\AddressParserTest\obj\Debug\AddressParserTest.dll
 C:\Applications\github\mattnies\AddressParser\AddressParserTest\obj\Debug\AddressParserTest.pdb

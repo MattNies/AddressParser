@@ -5,14 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AddressParserTest
 {
     [TestClass]
-    public class UnitTest1
+    public class ParseTest
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-
-        }
-
         [TestMethod]
         public void Address_ParseAddressLine2_City()
         {
@@ -42,6 +36,6 @@ namespace AddressParserTest
 
             Assert.AreEqual("29072-1111", parsedl2[2], "Zip code not parsing correct");
         }
-
+        
     }
 }

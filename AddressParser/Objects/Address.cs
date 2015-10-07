@@ -1,15 +1,14 @@
-﻿using AnimalTrap.Business;
+﻿using AddressParser.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AnimalTrap.Objects
+namespace AddressParser.Objects
 {
-
-    public class Address
+    class Address
     {
-
         #region fields
 
         #endregion
@@ -49,15 +48,12 @@ namespace AnimalTrap.Objects
 
         private void SetAdress1(string address)
         {
-            string[] parsedAddress;
-
-
+            //string[] parsedAddress;
         }
 
         private void ParseAdress2(string address)
         {
-            string[] parsedAddress = AddressParser.ParseAddressLine2(address);
-
+            string[] parsedAddress = ParseAddress.ParseAddressLine2(address);
             City = parsedAddress[0];
             State = parsedAddress[1];
             ZipCode = parsedAddress[2];
@@ -65,11 +61,11 @@ namespace AnimalTrap.Objects
 
         private string GetDefaultCity()
         {
-            if (this.ZipCode.Equals("29006")) 
+            if (this.ZipCode.Equals("29006"))
                 return "Batesburg";
-            if (this.ZipCode.Equals("29033")) 
+            if (this.ZipCode.Equals("29033"))
                 return "Cayce";
-            if (this.ZipCode.Equals("29036")) 
+            if (this.ZipCode.Equals("29036"))
                 return "Chapin";
             if (this.ZipCode.Equals("29054"))
                 return "Gaston";

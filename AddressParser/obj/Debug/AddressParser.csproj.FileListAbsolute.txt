@@ -1,0 +1,6 @@
+C:\Applications\github\mattnies\AddressParser\AddressParser\AddressParser\bin\Debug\AddressParser.exe.config
+C:\Applications\github\mattnies\AddressParser\AddressParser\bin\Debug\AddressParser.exe.config
+C:\Applications\github\mattnies\AddressParser\AddressParser\bin\Debug\AddressParser.exe
+C:\Applications\github\mattnies\AddressParser\AddressParser\bin\Debug\AddressParser.pdb
+C:\Applications\github\mattnies\AddressParser\AddressParser\obj\Debug\AddressParser.exe
+C:\Applications\github\mattnies\AddressParser\AddressParser\obj\Debug\AddressParser.pdb

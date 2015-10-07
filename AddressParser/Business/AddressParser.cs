@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
+using System.Threading.Tasks;
 
-namespace AnimalTrap.Business
+namespace AddressParser.Business
 {
+
     public enum State
     {
         AL, AK, AZ, AR, CF, CL, CT, DL, DC, FL, GA, HI, ID, IL, IN, IA, KA, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH,
         NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY
     }
 
-    public class AddressParser
+    public class ParseAddress
     {
         #region fields
 
@@ -22,7 +24,7 @@ namespace AnimalTrap.Business
         #endregion
 
         #region methods
-        
+
         public static void ParseAddressLine1(string address)
         {
 
@@ -40,21 +42,21 @@ namespace AnimalTrap.Business
             }
 
             //
-            foreach(string s in parsedAddress)
+            foreach (string s in parsedAddress)
             {
                 if (Regex.IsMatch(s, ZipCodeRegexUS))
                 {
-                    returnAddress[2] = s;      
+                    returnAddress[2] = s;
                 }
             }
             parsedAddress.Remove(returnAddress[2]);
 
             //
-            foreach(string s in parsedAddress)
+            foreach (string s in parsedAddress)
             {
                 if (Enum.IsDefined(typeof(State), s))
                 {
-                    returnAddress[1] = s;    
+                    returnAddress[1] = s;
                 }
             }
             parsedAddress.Remove(returnAddress[1]);
@@ -109,7 +111,6 @@ namespace AnimalTrap.Business
             return check;
         }
 
-
         public static bool ValidateState(string state)
         {
             return true;
@@ -130,4 +131,5 @@ namespace AnimalTrap.Business
         #endregion
 
     }
+
 }

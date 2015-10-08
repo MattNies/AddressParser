@@ -12,18 +12,31 @@ namespace AddressParser
     {
         static void Main(string[] args)
         {
-            string l1 = "212B S Lake Dr W Suite 302";
-            string l2 = "Happy but Sad, SC 29072-1111";
-            string l3 = "Lot 3024";
 
-            Address testAddress = new Address(l1, l2, l3);
+            Console.WriteLine(new Address("212B S Lake Dr West", "Lexington, SC 29072", "Suite 302").GetAddress());
+            //string[] parsedl1 = ParseAddress.ParseAddressLine1(l1);
 
-            string[] parsedl2 = ParseAddress.ParseAddressLine2(l2);
+            //foreach (string s in parsedl1)
+            //{
+            //    Console.WriteLine(s);
+            //}
 
-            foreach (string s in parsedl2)
-            {
-                Console.WriteLine(s);
-            }
+            //Console.WriteLine("\n*********************************\n");
+
+            //string[] parsedl2 = ParseAddress.ParseAddressLine2(l2);
+
+            //foreach (string s in parsedl2)
+            //{
+            //    Console.WriteLine(s);
+            //}
+
+            //Console.WriteLine("\n*********************************\n");
+
+            //string[] parsedl3 = ParseAddress.ParseAddressLine3(l3);
+            //foreach (string s in parsedl3)
+            //{
+            //    Console.WriteLine(s);
+            //}
         }
     }
 }

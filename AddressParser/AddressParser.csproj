@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Constants.cs" />
     <Compile Include="Business\ParseAddress.cs" />
     <Compile Include="Business\ValidateAddress.cs" />
     <Compile Include="Objects\Address.cs">

@@ -4,10 +4,12 @@
 
 using AddressParser.Business;
 using System;
+using System.Globalization;
+using System.Text;
 
 namespace AddressParser.Objects
 {
-    class Address
+    public class Address
     {
         #region fields
 
@@ -55,9 +57,9 @@ namespace AddressParser.Objects
 
             string[] parsedAddress2 = ParseAddress.ParseAddressLine2(address2);
             City = parsedAddress2[0];
-            DefaultCity = GetDefaultCity();
             State = parsedAddress2[1];
             ZipCode = parsedAddress2[2];
+            DefaultCity = GetDefaultCity();
 
             string[] parsedAddress3 = ParseAddress.ParseAddressLine3(address3);
             UnitType = parsedAddress3[0];
@@ -68,6 +70,29 @@ namespace AddressParser.Objects
         #endregion
 
         #region methods
+
+        public string GetAddress()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(!String.IsNullOrEmpty(StreetNumber) ? ToTitleCase(StreetNumber) : String.Empty);
+            sb.Append(!String.IsNullOrEmpty(StreetNumberSuffix) ? StreetNumberSuffix : String.Empty);
+            sb.Append(" ");
+            sb.Append(!String.IsNullOrEmpty(PrefixDirectional) ? PrefixDirectional.ToUpper() + " " : String.Empty);
+            sb.Append(!String.IsNullOrEmpty(StreetName) ? ToTitleCase(StreetName) : String.Empty);
+            sb.Append(" ");
+            sb.Append(!String.IsNullOrEmpty(StreetType) ? ToTitleCase(StreetType) : String.Empty);
+            sb.Append(!String.IsNullOrEmpty(SuffixDirectional) ? " " + SuffixDirectional.ToUpper() : String.Empty);
+            sb.Append(", ");
+            sb.Append(!String.IsNullOrEmpty(UnitType) ? ToTitleCase(UnitType) + " " : String.Empty);
+            sb.Append(!String.IsNullOrEmpty(Unit) ? Unit + ", " : String.Empty);
+            sb.Append(!String.IsNullOrEmpty(City) ? ToTitleCase(City) : String.Empty);
+            sb.Append(", ");
+            sb.Append(!String.IsNullOrEmpty(State) ? State.ToUpper() : String.Empty);
+            sb.Append(" ");
+            sb.Append(!String.IsNullOrEmpty(ZipCode) ? ZipCode : String.Empty);
+
+            return sb.ToString();
+        }
 
         /// <summary>
         /// Based on the zip code provided, the default city is returned.
@@ -106,6 +131,10 @@ namespace AddressParser.Objects
             return String.Empty;
         }
 
+        private string ToTitleCase(string str)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
 
         #endregion
     }

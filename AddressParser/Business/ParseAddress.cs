@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace AddressParser.Business
 {
 
     public enum State
     {
-        AL, AK, AZ, AR, CF, CL, CT, DL, DC, FL, GA, HI, ID, IL, IN, IA, KA, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH,
-        NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY
+        AL, AK, AZ, AR, CF, CL, CT, DL, DC, FL,
+        GA, HI, ID, IL, IN, IA, KA, KY, LA, ME,
+        MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, 
+        NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, 
+        SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, 
+        WY
     }
 
     public class ParseAddress
@@ -20,14 +21,23 @@ namespace AddressParser.Business
 
         private static char[] Address2Separator = new char[] { ' ', ',' };
         public const string ZipCodeRegexUS = @"^\d{5}(?:[-\s]\d{4})?$";
+        public const string StreetNumberRegex = @"(?<=\d)(?=\p{L})|(?<=\p{L})(?=\d)";
 
         #endregion
 
         #region methods
 
-        public static void ParseAddressLine1(string address)
+        /// <summary>
+        /// Parses the address into 6 different sections: Street Number, Street Number Suffix, 
+        /// Prefix Directional, Street Name, Street Type, Suffix Directional
+        /// </summary>
+        /// <param name="address">Address from line 1</param>
+        /// <returns>parsed address information </returns>
+        public static string[] ParseAddressLine1(string address)
         {
+            string[] returnAddress = new string[6];
 
+            return returnAddress;
         }
 
         public static string[] ParseAddressLine2(string address)
@@ -65,6 +75,11 @@ namespace AddressParser.Business
             returnAddress[0] = string.Join(" ", parsedAddress);
 
             return returnAddress;
+        }
+
+        public static string[] ParseAddressLine3(string address3)    
+        {
+
         }
 
         #endregion

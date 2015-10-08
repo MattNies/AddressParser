@@ -1,5 +1,4 @@
-﻿using System;
-using AddressParser.Business;
+﻿using AddressParser.Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AddressParserTest

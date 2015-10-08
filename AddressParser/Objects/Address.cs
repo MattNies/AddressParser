@@ -1,9 +1,5 @@
 ﻿/****************************************************************************************
- * Programmer: Matt Nies
- *       Date: 2015-10-08
- *       File: ParseAddress.cs
- *   Function: Creates, parses, and validates an Address object based on GIS requirements
- *             for lexington county.
+ *   Creates an Address object based on GIS requirements for lexington county.
  ****************************************************************************************/
 
 using AddressParser.Business;

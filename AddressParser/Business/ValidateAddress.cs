@@ -7,44 +7,8 @@ namespace AddressParser.Business
     {
         public static bool ValidateStreetTypes(string streetType)
         {
-            string[] streetTypes = new string[]
-            {
-                "ALLEY", "ALY",
-                "AVENUE", "AVE",
-                "BOULEVARD", "BLVD",
-                "BEND", "BND",
-                "CIRCLE", "CIR",
-                "CRESCENT", "CRES",
-                "CROSSING", "CRNG",
-                "COURT", "CT",
-                "DRIVE", "DR",
-                "END", 
-                "ESTATES", "ESTS",
-                "EXPRESSWAY", "EXPR",
-                "EXTENSION", "EXT",
-                "HIGHWAY", "HWY",
-                "LANE", "LN",
-                "LOOP",
-                "PASS",
-                "PATH",
-                "PARKWAY", "PKWY",
-                "PLACE", "PL",
-                "POINT", "PT",
-                "POINTE", "PTE",
-                "RAMP",
-                "ROAD", "RD",
-                "ROW",
-                "ROUTE", "RTE",
-                "RUN",
-                "SQUARE", "SQ",
-                "STREET", "ST",
-                "TERRACE", "TER",
-                "TRACE", "TRC",
-                "TRAIL", "TRL",
-                "WAY"
-            };
 
-            bool check = streetTypes.Contains(streetType.ToUpper());
+            bool check = Constants.StreetTypes.Contains(streetType.ToUpper());
 
             return check;
         }
@@ -56,7 +20,7 @@ namespace AddressParser.Business
 
         public static bool ValidateZipCode(string zipCode)
         {
-            Regex reg = new Regex(ParseAddress.ZipCodeRegexUS);
+            Regex reg = new Regex(Constants.ZipCodeRegexUS);
 
             if (reg.IsMatch(zipCode))
                 return true;

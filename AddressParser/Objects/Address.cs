@@ -1,9 +1,13 @@
-﻿using AddressParser.Business;
+﻿/****************************************************************************************
+ * Programmer: Matt Nies
+ *       Date: 2015-10-08
+ *       File: ParseAddress.cs
+ *   Function: Creates, parses, and validates an Address object based on GIS requirements
+ *             for lexington county.
+ ****************************************************************************************/
+
+using AddressParser.Business;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AddressParser.Objects
 {
@@ -17,6 +21,7 @@ namespace AddressParser.Objects
 
         public string Address1 { get; private set; } // street address, apt/lot information
         public string Address2 { get; private set; } // city, state zip
+        public string Address3 { get; private set; } // unit/lot information
 
         public string StreetNumber { get; private set; }
         public string StreetNumberSuffix { get; private set; }
@@ -32,33 +37,47 @@ namespace AddressParser.Objects
         public string State { get; private set; }
         public string ZipCode { get; private set; }
 
+        public bool isValid { get; private set; }
+
         #endregion
 
         #region constructors
 
-        public Address(string address1, string address2)
+        public Address(string address1, string address2, string address3)
         {
             Address1 = address1;
             Address2 = address2;
+            Address3 = address3;
+            
+            string[] parsedAddress = ParseAddress.ParseAddressLine1(address1);
+            StreetNumber = parsedAddress[0];
+            StreetNumberSuffix = parsedAddress[1];
+            PrefixDirectional = parsedAddress[2];
+            StreetName = parsedAddress[3];
+            StreetType = parsedAddress[4];
+            SuffixDirectional = parsedAddress[5];
+
+            string[] parsedAddress2 = ParseAddress.ParseAddressLine2(address2);
+            City = parsedAddress2[0];
+            DefaultCity = GetDefaultCity();
+            State = parsedAddress2[1];
+            ZipCode = parsedAddress2[2];
+
+            string[] parsedAddress3 = ParseAddress.ParseAddressLine3(address3);
+            UnitType = parsedAddress3[0];
+            Unit = parsedAddress3[1];
+
         }
 
         #endregion
 
         #region methods
 
-        private void SetAdress1(string address)
-        {
-            //string[] parsedAddress;
-        }
-
-        private void ParseAdress2(string address)
-        {
-            string[] parsedAddress = ParseAddress.ParseAddressLine2(address);
-            City = parsedAddress[0];
-            State = parsedAddress[1];
-            ZipCode = parsedAddress[2];
-        }
-
+        /// <summary>
+        /// Based on the zip code provided, the default city is returned.
+        /// </summary>
+        /// <returns></returns>
+        /// if  this is ever expanded to a wider range of areas, look into USPS web tools to accomplish.
         private string GetDefaultCity()
         {
             if (this.ZipCode.Equals("29006"))

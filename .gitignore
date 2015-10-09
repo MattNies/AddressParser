@@ -1,3 +1,6 @@
 obj/
 bin/
 TestResults/
+*.sln
+*.suo
+*.csproj

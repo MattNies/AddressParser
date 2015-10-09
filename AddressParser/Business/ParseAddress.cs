@@ -74,7 +74,7 @@ namespace AddressParser.Business
             {
                 if (parsedAddress[parsedAddress.Count - 1].Length > 2)
                 {
-                    returnAddress[2] = ConvertPrefix(parsedAddress[parsedAddress.Count - 1].ToUpper());
+                    returnAddress[5] = ConvertPrefix(parsedAddress[parsedAddress.Count - 1].ToUpper());
                 }
                 else
                 {

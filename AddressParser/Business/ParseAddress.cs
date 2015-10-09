@@ -39,6 +39,7 @@ namespace AddressParser.Business
             {
                 streetNum.Add(s);
             }
+
             try
             {
                 returnAddress[1] = streetNum[1];

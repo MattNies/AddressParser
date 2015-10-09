@@ -13,7 +13,9 @@ namespace AddressParser
         static void Main(string[] args)
         {
 
-            Console.WriteLine(new Address("212B S Lake Dr West", "Lexington, SC 29072", "Suite 302").GetAddress());
+            //Console.WriteLine(new Address("212B S Lake Dr West", "Lexington, SC 29072", "Suite 302").GetAddress());
+            Console.WriteLine(new Address("121 Brookgate Dr.", "Myrtle Beach, SC 29579", "Apt 999").GetAddress());
+            Console.WriteLine(new Address("752 HIGHWAY 378 W", "Lexington, SC 29072", "").GetAddress());
             //string[] parsedl1 = ParseAddress.ParseAddressLine1(l1);
 
             //foreach (string s in parsedl1)

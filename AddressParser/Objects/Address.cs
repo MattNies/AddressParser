@@ -79,8 +79,7 @@ namespace AddressParser.Objects
             sb.Append(" ");
             sb.Append(!String.IsNullOrEmpty(PrefixDirectional) ? PrefixDirectional.ToUpper() + " " : String.Empty);
             sb.Append(!String.IsNullOrEmpty(StreetName) ? ToTitleCase(StreetName) : String.Empty);
-            sb.Append(" ");
-            sb.Append(!String.IsNullOrEmpty(StreetType) ? ToTitleCase(StreetType) : String.Empty);
+            sb.Append(!String.IsNullOrEmpty(StreetType) ? " " + ToTitleCase(StreetType) : String.Empty);
             sb.Append(!String.IsNullOrEmpty(SuffixDirectional) ? " " + SuffixDirectional.ToUpper() : String.Empty);
             sb.Append(", ");
             sb.Append(!String.IsNullOrEmpty(UnitType) ? ToTitleCase(UnitType) + " " : String.Empty);
